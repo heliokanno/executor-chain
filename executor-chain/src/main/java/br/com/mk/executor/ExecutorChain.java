@@ -40,7 +40,7 @@ public class ExecutorChain<T> {
         } catch (ExecutorFlowBreakerException ex) {
             throw ex;
         } catch (Exception ex) {
-            output = executeHandler(errorHandler).apply(input);
+            output = executeHandler(errorHandler).apply(output);
         }
         return executeHandler(afterAll).apply(output);
     }
